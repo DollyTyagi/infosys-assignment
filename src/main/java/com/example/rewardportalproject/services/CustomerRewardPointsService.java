@@ -1,10 +1,10 @@
 package com.example.rewardportalproject.services;
 
-import com.example.rewardportalproject.entities.CustomerRewardPoints;
-import com.example.rewardportalproject.entities.Customers;
+import java.util.Map;
+import com.example.rewardportalproject.entities.CustomerRewards;
 
 public interface CustomerRewardPointsService {
 	
-	public CustomerRewardPoints calculateRewardPoints(Customers customer , String month);
+	Map<Long, CustomerRewards> calculateRewardsForAllCustomers();
 
 }
