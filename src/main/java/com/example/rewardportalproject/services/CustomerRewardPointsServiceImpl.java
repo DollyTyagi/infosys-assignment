@@ -21,7 +21,7 @@ public class CustomerRewardPointsServiceImpl implements CustomerRewardPointsServ
 	    @Override
 	    public Map<Long, CustomerRewards> calculateRewardsForAllCustomers() {
 	        List<Transactions> transactions = entityManager.createQuery(
-	            "SELECT t FROM Transactions t", Transactions.class).getResultList();
+	            "SELECT t FROM Transaction t", Transactions.class).getResultList();
 	        
 	        Map<Long, CustomerRewards> rewardsMap = new HashMap<>();
 	        
