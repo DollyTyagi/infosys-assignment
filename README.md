@@ -11,6 +11,7 @@ This application implements a retailer's rewards program where customers earn po
 For example, a $120 purchase earns: (2 × $20) + (1 × $50) = 90 points
 
 ### Project Structure
+```
 src/
 ├── main/
 │   ├── java/
@@ -29,7 +30,7 @@ src/
         └── com/example/rewardportalproject/
             ├── controllers/
             └── services/
-
+```
 ### Technical Stack
 
 - Java 17
@@ -59,10 +60,11 @@ The database console is available at http://localhost:8080/h2-console.
 GET /customer-rewards
 
 #### Global Exception Handler: Error Response
-
+```json
 {
     "details": "uri=/customer-rewards",
     "message": "org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'Transaction'",
     "timestamp": "2025-02-03T12:24:26.811+00:00",
     "status": 500
 }
+```
