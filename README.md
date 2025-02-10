@@ -59,7 +59,7 @@ The database console is available at http://localhost:8080/h2-console.
 #### Get All Customer Rewards
 GET /customer-rewards
 
-####Sample Data
+#### Sample Data
 It has sample transactions data in src/main/resources/data.sql which will be loaded automatically when the application starts.
 
 
