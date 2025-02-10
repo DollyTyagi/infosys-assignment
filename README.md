@@ -38,7 +38,7 @@ src/
 - Spring Data JPA
 - H2 Database
 - Lombok
-- JUnit
+- JUnit for Testing
 
 ### Development
 
@@ -59,6 +59,10 @@ The database console is available at http://localhost:8080/h2-console.
 #### Get All Customer Rewards
 GET /customer-rewards
 
+####Sample Data
+It has sample transactions data in src/main/resources/data.sql which will be loaded automatically when the application starts.
+
+
 #### Global Exception Handler: Error Response
 ```json
 {
@@ -67,4 +71,4 @@ GET /customer-rewards
     "timestamp": "2025-02-03T12:24:26.811+00:00",
     "status": 500
 }
-```
+```   
