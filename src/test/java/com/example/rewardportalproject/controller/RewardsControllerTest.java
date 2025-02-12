@@ -11,7 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.rewardportalproject.controllers.RewardsController;
 import com.example.rewardportalproject.entities.CustomerRewards;
@@ -24,6 +27,9 @@ public class RewardsControllerTest {
 
     @InjectMocks
     private RewardsController rewardsController;
+    
+    @Autowired
+    private MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
@@ -45,5 +51,20 @@ public class RewardsControllerTest {
         // Verify results
         assertTrue(response.getStatusCode().is2xxSuccessful());
         assertEquals(mockRewards, response.getBody());
+    }
+    
+    @Test
+    void getAllCustomerRewards_ShouldReturnRewards() throws Exception {
+        // Given
+        when(rewardsService.calculateRewardsForAllCustomers()).thenReturn(mockRewards);
+
+        // When & Then
+        mockMvc.perform(get("/customer-rewards")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+
+        verify(rewardsService, times(1)).calculateRewardsForAllCustomers();
     }
 }
